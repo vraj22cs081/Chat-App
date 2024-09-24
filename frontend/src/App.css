@@ -1,0 +1,66 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.login-container, .signup-container, .room-container, .chat-container {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input, button {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin-top: 10px;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+}
+
+.create-room-btn, .join-btn, .send-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.message-form input {
+  width: 80%;
+}
+
+.messages {
+  height: 300px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.message.left {
+  background-color: #f1f1f1;
+  align-self: flex-start;
+}
+
+.message.right {
+  background-color: #007bff;
+  color: white;
+  align-self: flex-end;
+}
+
+.error-message {
+  color: red;
+}
