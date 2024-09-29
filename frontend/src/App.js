@@ -9,7 +9,7 @@ function App() {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState('');
   const [username, setUsername] = useState('');
-  const [email, setEmail] = useState(''); // Added email state
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [roomCode, setRoomCode] = useState('');
   const [isJoined, setIsJoined] = useState(false);
@@ -35,21 +35,18 @@ function App() {
       appendMessage(`${name} left the chat`, 'left');
     });
 
-    // When a room is created
     socket.on('room-created', (roomCode) => {
-      setRoomCode(roomCode); // Display room code in UI
+      setRoomCode(roomCode);
       setIsRoomCreator(true);
       setIsJoined(true);
-      console.log(`${username} has created a room with code: ${roomCode}`); // Log the room creator in the console
+      console.log(`${username} has created a room with code: ${roomCode}`);
     });
 
-    // When joined the room successfully
     socket.on('joined-room', () => {
       setIsJoined(true);
       setError('');
     });
 
-    // Handle error messages for room joining
     socket.on('error', (message) => {
       setError(message);
       setIsJoined(false);
@@ -155,7 +152,7 @@ function App() {
             required
           />
           <input
-            type="email"  // Added email input
+            type="email"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -176,7 +173,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="chat-app-container"> {/* Main container for chat app */}
       {!isJoined ? (
         <div className="room-container">
           <button onClick={handleCreateRoom} className="create-room-btn">Create Room</button>
